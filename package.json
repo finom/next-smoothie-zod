@@ -1,0 +1,48 @@
+{
+  "name": "next-smoothie-zod",
+  "version": "0.0.0",
+  "description": "Isomorphic Zod validation for next-smoothie controllers",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run lint-nofix && tsc --noEmit",
+    "lint": "npm run lint-nofix -- --fix",
+    "lint-nofix": "npx eslint .",
+    "build": "tsc",
+    "patch": "npm t && npm version patch && npm run build && npm publish && git push && git push --tags",
+    "minor": "npm t && npm version minor && npm run build && npm publish && git push && git push --tags",
+    "BREAKING-major": "npm t && npm version major && npm run build && npm publish && git push && git push --tags",
+    "beta": "npm t && npm version prerelease --preid=beta && npm run build && npm publish --tag beta && git push && git push --tags"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 120
+  },
+  "keywords": [
+    "next-smoothie",
+    "zod",
+    "ajv"
+  ],
+  "author": "Andrii Gubanov",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "next": "^14.0.3",
+    "typescript": "^5.3.2",
+    "zod": "*"
+  },
+  "peerDependencies": {
+    "next": "*",
+    "next-smoothie": "*",
+    "zod": "*"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "zod-to-json-schema": "^3.22.0"
+  }
+}

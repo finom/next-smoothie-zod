@@ -13,7 +13,7 @@ export const zodValidateOnClient: SmoothieClientOptions['validateOnClient'] = (i
     const isValid = ajv.validate(validators.body, input.body);
 
     if (!isValid) {
-      throw new Error(`Invalid body. ${ajv.errorsText()}`);
+      throw new HttpException(HttpStatus.NULL, `Invalid body on client. ${ajv.errorsText()}`);
     }
   }
 
@@ -21,7 +21,7 @@ export const zodValidateOnClient: SmoothieClientOptions['validateOnClient'] = (i
     const isValid = ajv.validate(validators.query, input.query);
 
     if (!isValid) {
-      throw new Error(`Invalid query. ${ajv.errorsText()}`);
+      throw new HttpException(HttpStatus.NULL, `Invalid query on client. ${ajv.errorsText()}`);
     }
   }
 };
@@ -36,7 +36,7 @@ const smoothieZod = createDecorator(
         bodyModel.parse(body);
       } catch (e) {
         const err = (e as z.ZodError).errors.map((er) => `${er.message} (${er.path.join('/')})`).join(', ');
-        throw new HttpException(HttpStatus.BAD_REQUEST, `Invalid body. ${err}`);
+        throw new HttpException(HttpStatus.BAD_REQUEST, `Invalid body on server. ${err}`);
       }
       req.json = () => Promise.resolve(body);
     }
@@ -47,7 +47,7 @@ const smoothieZod = createDecorator(
         queryModel.parse(query);
       } catch (e) {
         const err = (e as z.ZodError).errors.map((er) => `${er.message} (${er.path.join('/')})`).join(', ');
-        throw new HttpException(HttpStatus.BAD_REQUEST, `Invalid query. ${err}`);
+        throw new HttpException(HttpStatus.BAD_REQUEST, `Invalid query on server. ${err}`);
       }
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "next-smoothie-zod",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Isomorphic Zod validation for next-smoothie controllers",
   "main": "dist/index.js",
   "scripts": {

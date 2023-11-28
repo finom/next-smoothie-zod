@@ -6,3 +6,7 @@
 
 <h1 align="center">next-smoothie-zod</h1>
 <p align="center">Isomorphic Zod validation for <a href="https://github.com/finom/next-smoothie">next-smoothie</a> controllers (WIP)</p>
+
+## Working with `FormData`
+
+The library doesn't support `FormData` validation yet, but you still can validate your query.

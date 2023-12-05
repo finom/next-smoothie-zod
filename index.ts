@@ -56,8 +56,8 @@ const smoothieZod = createDecorator(
   (bodyModel?: ZodObject | null, queryModel?: ZodObject | null) => {
     return {
       clientValidators: {
-        body: bodyModel ? zodToJsonSchema(bodyModel) : undefined,
-        query: queryModel ? zodToJsonSchema(queryModel) : undefined,
+        body: bodyModel ? zodToJsonSchema(bodyModel) : null,
+        query: queryModel ? zodToJsonSchema(queryModel) : null,
       },
     };
   }

@@ -7,6 +7,7 @@
     "test": "npm run lint-nofix && tsc --noEmit",
     "lint": "npm run lint-nofix -- --fix",
     "lint-nofix": "npx eslint .",
+    "upgrade": "npx npm-check-updates -u && npm i",
     "build": "tsc",
     "patch": "npm t && npm version patch && npm run build && npm publish && git push && git push --tags",
     "minor": "npm t && npm version minor && npm run build && npm publish && git push && git push --tags",

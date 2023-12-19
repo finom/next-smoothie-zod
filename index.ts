@@ -30,7 +30,7 @@ export const zodValidateOnClient: VovkClientOptions['validateOnClient'] = (input
 
 type ZodObject = z.ZodObject<KnownAny> | z.ZodRecord<KnownAny>;
 
-const smoothieZod = createDecorator(
+const vovkZod = createDecorator(
   async (req, next, bodyModel?: ZodObject | null, queryModel?: ZodObject | null) => {
     if (bodyModel) {
       const body: unknown = await req.json();
@@ -65,4 +65,4 @@ const smoothieZod = createDecorator(
   }
 );
 
-export default smoothieZod;
+export default vovkZod;

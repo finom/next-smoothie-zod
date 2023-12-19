@@ -1,7 +1,7 @@
 {
-  "name": "next-smoothie-zod",
+  "name": "vovk-zod",
   "version": "0.0.4",
-  "description": "Isomorphic Zod validation for next-smoothie controllers",
+  "description": "Isomorphic Zod validation for Vovk.js controllers",
   "main": "dist/index.js",
   "scripts": {
     "test": "npm run lint-nofix && tsc --noEmit",
@@ -21,7 +21,7 @@
     "printWidth": 120
   },
   "keywords": [
-    "next-smoothie",
+    "vovk",
     "zod",
     "ajv"
   ],
@@ -38,7 +38,7 @@
   },
   "peerDependencies": {
     "next": "*",
-    "next-smoothie": "*",
+    "vovk": "*",
     "zod": "*"
   },
   "dependencies": {

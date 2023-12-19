@@ -1,5 +1,5 @@
-import type { SmoothieClientOptions } from 'next-smoothie/client';
-import { HttpException, HttpStatus, createDecorator } from 'next-smoothie';
+import type { VovkClientOptions } from 'vovk/client';
+import { HttpException, HttpStatus, createDecorator } from 'vovk';
 import { z } from 'zod';
 import { default as zodToJsonSchema } from 'zod-to-json-schema';
 import Ajv from 'ajv';
@@ -8,7 +8,7 @@ type KnownAny = any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 const ajv = new Ajv();
 
-export const zodValidateOnClient: SmoothieClientOptions['validateOnClient'] = (input, validators) => {
+export const zodValidateOnClient: VovkClientOptions['validateOnClient'] = (input, validators) => {
   if (validators.body) {
     const isValid = ajv.validate(validators.body, input.body);
 

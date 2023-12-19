@@ -1,1 +1,1 @@
-To simplify the testing infrastructure the library is tested at the [next-smoothie repository](https://github.com/finom/next-smoothie).
+To simplify the testing infrastructure the library is tested at the [vovk repository](https://github.com/finom/vovk).

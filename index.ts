@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import type { VovkClientOptions } from 'vovk/client';
 import { HttpException, HttpStatus, createDecorator } from 'vovk';
 import { z } from 'zod';

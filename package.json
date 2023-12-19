@@ -1,6 +1,6 @@
 {
   "name": "vovk-zod",
-  "version": "0.0.5",
+  "version": "0.0.4",
   "description": "Isomorphic Zod validation for Vovk.js controllers",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "lint": "npm run lint-nofix -- --fix",
     "lint-nofix": "npx eslint .",
     "build": "tsc",
-    "patch": "npm version patch && npm run build && npm publish && git push && git push --tags",
+    "patch": "npm t && npm version patch && npm run build && npm publish && git push && git push --tags",
     "minor": "npm t && npm version minor && npm run build && npm publish && git push && git push --tags",
     "BREAKING-major": "npm t && npm version major && npm run build && npm publish && git push && git push --tags",
     "beta": "npm t && npm version prerelease --preid=beta && npm run build && npm publish --tag beta && git push && git push --tags"

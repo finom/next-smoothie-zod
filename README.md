@@ -3,8 +3,6 @@
 </p>
 <h1 align="center">vovk-zod</h1>
 <p align="center">Isomorphic Zod validation for <a href="https://github.com/finom/vovk">vovk</a> controllers on server and client</p>
-
-<br>
 <p align="center">
   <a href="https://badge.fury.io/js/vovk-zod">
     <img src="https://badge.fury.io/js/vovk-zod.svg" alt="npm version" />

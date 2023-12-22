@@ -4,7 +4,7 @@
   
 </p>
 <h1 align="center">vovk-zod</h1>
-<p align="center">Isomorphic Zod validation for <a href="https://github.com/finom/vovk">vovk</a> controllers and client</p>
+<p align="center">Isomorphic Zod validation for <a href="https://github.com/finom/vovk">vovk</a> controllers on server and client</p>
 
 **vovk-zod** exports `vovkZod` decorator fabric that validates request body and incoming query string providing Zod models.
 
@@ -31,7 +31,9 @@ export default class UserController {
 
     @put()
     @vovkZod(UpdateUserModel, UpdateUserQueryModel)
-    static updateUser(req: VovkRequest<z.infer<typeof UpdateUserModel>, z.infer<typeof UpdateUserQueryModel>>) {
+    static updateUser(
+        req: VovkRequest<z.infer<typeof UpdateUserModel>, z.infer<typeof UpdateUserQueryModel>>
+    ) {
         const { name, email } = await req.json();
         const id = req.nextUrl.searchParams.get('id');
 

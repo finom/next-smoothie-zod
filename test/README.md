@@ -1,1 +1,1 @@
-To simplify the testing infrastructure the library is tested at the [vovk repository](https://github.com/finom/vovk).
+To simplify the testing infrastructure the library is unit-tested at the [Vovk.ts repository](https://github.com/finom/vovk).

@@ -2,7 +2,7 @@
 <a href="https://github.com/finom/vovk"><img valign="middle" src="https://github.com/finom/vovk/assets/1082083/86bfbbbb-3600-435b-a74c-c07bd0c4af4b" height="150" /></a> &nbsp;&nbsp;<img valign="middle" alt="plus" src="https://github.com/finom/vovk-zod/assets/1082083/50a15051-51a8-4f9b-a251-e4376576f9e7" width="30" /> <a href="https://zod.dev/"><img valign="middle" src="https://github.com/finom/vovk-zod/assets/1082083/308ef538-43b5-4ea5-ab1e-a660b4e21b65"  height="150" /></a> <img valign="middle" alt="plus" src="https://github.com/finom/vovk-zod/assets/1082083/50a15051-51a8-4f9b-a251-e4376576f9e7" width="30" /> <a href="https://ajv.js.org/"><img valign="middle" src="https://camo.githubusercontent.com/985f4bca44ac720873daf94ec77043eabb44c45b1f3e83555d2b180e7b46c6bc/68747470733a2f2f616a762e6a732e6f72672f696d672f616a762e737667" height="100" /></a>
 </p>
 <h1 align="center">vovk-zod</h1>
-<p align="center">Isomorphic [Zod](https://zod.dev/) validation for <a href="https://github.com/finom/vovk">Vovk.ts</a> controllers on server and client</p>
+<p align="center">Isomorphic <a href="https://zod.dev/">Zod</a> validation for <a href="https://github.com/finom/vovk">Vovk.ts</a> controllers on server and client</p>
 <p align="center">
   <a href="https://badge.fury.io/js/vovk-zod">
     <img src="https://badge.fury.io/js/vovk-zod.svg" alt="npm version" />

@@ -43,6 +43,7 @@ const vovkZod = createDecorator(
 
     if (queryModel) {
       const query = Object.fromEntries(req.nextUrl.searchParams.entries());
+      delete query.nxtP;
       try {
         queryModel.parse(query);
       } catch (e) {

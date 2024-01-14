@@ -1,4 +1,7 @@
 .eslintrc.cjs
 .gitignore
+.github
 index.ts
+test
+zodValidateOnClient.ts
 tsconfig.json

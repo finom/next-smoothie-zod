@@ -2,7 +2,7 @@
   "name": "vovk-zod",
   "version": "0.0.13",
   "description": "Isomorphic Zod validation for Vovk.js controllers",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "npm run lint-nofix && tsc --noEmit",
     "lint": "npm run lint-nofix -- --fix",

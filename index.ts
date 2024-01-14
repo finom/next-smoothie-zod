@@ -1,30 +1,10 @@
-import type { VovkClientOptions } from 'vovk/client';
+
+
 import { HttpException, HttpStatus, createDecorator } from 'vovk';
 import { z } from 'zod';
 import { default as zodToJsonSchema } from 'zod-to-json-schema';
-import Ajv from 'ajv';
 
 type KnownAny = any; // eslint-disable-line @typescript-eslint/no-explicit-any
-
-const ajv = new Ajv();
-
-export const zodValidateOnClient: VovkClientOptions['validateOnClient'] = (input, validators) => {
-  if (validators.body) {
-    const isValid = ajv.validate(validators.body, input.body);
-
-    if (!isValid) {
-      throw new HttpException(HttpStatus.NULL, `Invalid body on client. ${ajv.errorsText()}`);
-    }
-  }
-
-  if (validators.query) {
-    const isValid = ajv.validate(validators.query, input.query);
-
-    if (!isValid) {
-      throw new HttpException(HttpStatus.NULL, `Invalid query on client. ${ajv.errorsText()}`);
-    }
-  }
-};
 
 type ZodObject = z.ZodObject<KnownAny> | z.ZodRecord<KnownAny>;
 

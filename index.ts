@@ -3,6 +3,7 @@
 import { HttpException, HttpStatus, createDecorator } from 'vovk';
 import { z } from 'zod';
 import { default as zodToJsonSchema } from 'zod-to-json-schema';
+export { default as zodValidateOnClient } from './zodValidateOnClient';
 
 type KnownAny = any; // eslint-disable-line @typescript-eslint/no-explicit-any
 

@@ -1,6 +1,6 @@
 {
   "name": "vovk-zod",
-  "version": "0.0.14",
+  "version": "0.0.15-beta.0",
   "description": "Isomorphic Zod validation for Vovk.js controllers",
   "main": "index.js",
   "scripts": {

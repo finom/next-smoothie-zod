@@ -15,6 +15,6 @@
     "outDir": ".",
     "declaration": true
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "*.js"],
   "include": ["index.ts", "zodValidateOnClient.ts"],
 }

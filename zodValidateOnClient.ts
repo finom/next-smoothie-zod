@@ -1,8 +1,11 @@
 import type { VovkClientOptions } from 'vovk/client';
 import Ajv from 'ajv';
 import { HttpException, HttpStatus } from 'vovk';
+import addFormats from 'ajv-formats';
 
 const ajv = new Ajv();
+
+addFormats(ajv);
 
 const zodValidateOnClient: VovkClientOptions['validateOnClient'] = (input, validators) => {
   if (validators.body) {

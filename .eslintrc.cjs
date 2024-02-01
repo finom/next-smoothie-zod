@@ -4,7 +4,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint'],
     root: true,
-    ignorePatterns: ["dist", "*.js", "*.cjs", "*.d.js"],
+    ignorePatterns: ["dist", "*.js", "*.cjs", "*.d.ts"],
     parserOptions: {
         ecmaVersion: 2022,
         sourceType: 'module',

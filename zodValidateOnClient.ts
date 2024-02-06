@@ -12,6 +12,9 @@ const zodValidateOnClient: VovkClientOptions['validateOnClient'] = (input, valid
     const isValid = ajv.validate(validators.body, input.body);
 
     if (!isValid) {
+      if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+        console.error('[zodValidateOnClient in dev env] The error below is caused by an invalid body', input.body);
+      }
       throw new HttpException(HttpStatus.NULL, `Invalid body on client. ${ajv.errorsText()}`);
     }
   }
@@ -20,6 +23,9 @@ const zodValidateOnClient: VovkClientOptions['validateOnClient'] = (input, valid
     const isValid = ajv.validate(validators.query, input.query);
 
     if (!isValid) {
+      if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+        console.error('[zodValidateOnClient in dev env] The error below is caused by an invalid query', input.query);
+      }
       throw new HttpException(HttpStatus.NULL, `Invalid query on client. ${ajv.errorsText()}`);
     }
   }

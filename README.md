@@ -17,7 +17,7 @@
 
 
 
-**vovk-zod** exports `vovkZod` decorator fabric that validates request body and incoming query string providing Zod models.
+**vovk-zod** exports `vovkZod` decorator fabric that validates request body and incoming query string with Zod models.
 
 ```ts
 // vovk/user/UserController.ts

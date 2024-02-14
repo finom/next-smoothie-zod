@@ -89,9 +89,7 @@ import vovkZod from 'vovk-zod';
 
 export default class HelloController {
     @post()
-    @vovkZod(null, z.object({
-        something: z.string()
-    }).strict())
+    @vovkZod(null, z.object({ something: z.string() }).strict())
     static postFormData(req: VovkRequest<FormData, { something: string }>) {
         const formData = await req.formData();
         const something = req.nextUrl.searchParams.get('something');

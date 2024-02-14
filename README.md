@@ -4,15 +4,9 @@
 <h1 align="center">vovk-zod</h1>
 <p align="center">Isomorphic <a href="https://zod.dev/">Zod</a> validation for <a href="https://github.com/finom/vovk">Vovk.ts</a> controllers on server and client</p>
 <p align="center">
-  <a href="https://badge.fury.io/js/vovk-zod">
-    <img src="https://badge.fury.io/js/vovk-zod.svg" alt="npm version" />
-  </a>
-  <a href="http://www.typescriptlang.org/">
-    <img src="https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg" alt="TypeScript" />
-  </a>
-  <a href="https://github.com/finom/vovk-zod/actions">
-    <img src="https://github.com/finom/vovk-zod/actions/workflows/main.yml/badge.svg" alt="Build status" />
-  </a>
+  <a href="https://badge.fury.io/js/vovk-zod"><img src="https://badge.fury.io/js/vovk-zod.svg" alt="npm version" /></a>
+  <a href="http://www.typescriptlang.org/"><img src="https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg" alt="TypeScript" /></a>
+  <a href="https://github.com/finom/vovk-zod/actions"><img src="https://github.com/finom/vovk-zod/actions/workflows/main.yml/badge.svg" alt="Build status" /></a>
 </p>
 
 

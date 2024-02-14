@@ -76,7 +76,7 @@ const MyPage = () => {
 export default MyPage;
 ```
 
-When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vovk-zod/blob/main/zodValidateOnClient.ts) is enabled by default as `validateOnClient` option to validate incoming reqests on the client-side. Please check [customization docs](https://docs.vovk.dev/docs/customization) for more info.
+When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vovk-zod/blob/main/zodValidateOnClient.ts) is enabled by default as `validateOnClient` config option to validate incoming reqests on the client-side. Please check [customization docs](https://docs.vovk.dev/docs/customization) for more info.
 
 ## Working with `FormData`
 
@@ -103,7 +103,7 @@ export default class HelloController {
 
 The library (as well as Vovk.ts itself) is built thanks to fantastic job made by other people.
 
-- When `@vovkZod` is initialised, it converts [Zod](https://zod.dev/) schemas to JSON Schemas with [zod-to-json-schema](https://www.npmjs.com/package/zod-to-json-schema) and makes `onMetadata` handler to receive it as client validation object.
+- When `@vovkZod` is initialised, it converts [Zod](https://zod.dev/) schemas to JSON Schemas with [zod-to-json-schema](https://www.npmjs.com/package/zod-to-json-schema) and makes metadata handler to receive it as client validation object.
 - `@vovkZod` performs Zod validation on server-side.
 - When clientized controller method gets called `zodValidateOnClient` performs validation on client-side with [Ajv](https://ajv.js.org/).
 

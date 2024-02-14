@@ -36,7 +36,7 @@ const UpdateUserQueryModel = z.object({
 }).strict();
 
 export default class UserController {
-    static userService = UserService;
+    private static userService = UserService;
 
     @put()
     @vovkZod(UpdateUserModel, UpdateUserQueryModel)
@@ -63,7 +63,7 @@ const MyPage = () => {
         void UserController.updateUser({
             query: { id: '696969' },
             body: { name: 'John Doe', email: 'john@example.com' },
-            // optionally disable client validation for debugging purpose
+            // optionally, disable client validation for debugging purpose
             disableClientValidation: true, 
         }).then(/* ... */);
     }, []);

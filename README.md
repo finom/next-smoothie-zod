@@ -20,7 +20,7 @@
 **vovk-zod** exports `vovkZod` decorator fabric that validates request body and incoming query string with Zod models.
 
 ```ts
-// vovk/user/UserController.ts
+// /src/models/user/UserController.ts
 import { z } from 'zod';
 import vovkZod from 'vovk-zod';
 import { put, type VovkRequest } from 'vovk';
@@ -36,8 +36,6 @@ const UpdateUserQueryModel = z.object({
 }).strict();
 
 export default class UserController {
-    static controllerName = 'UserController';
-
     static userService = UserService;
 
     @put()
@@ -54,58 +52,14 @@ export default class UserController {
 
 ```
 
-To enable validation on client, you can pass `zodValidateOnClient` imported from **vovk-zod** as `validateOnClient` option for `clientizeController` function. Doing that will make all requests made with the clientized controller (if API handler is wrapped by `@vovkZod`) validated with **Ajv** on client-side, before they got sent to back-end.
-
-
-```ts
-// vovk/user/UserState.ts
-import { clientizeController, type DefaultFetcherOptions } from 'vovk/client';
-import { zodValidateOnClient } from 'vovk-zod';
-import type UserController from './UserController';
-import metadata from '../vovk-metadata.json';
-
-const controller = clientizeController<typeof StreamingController>(metadata.UserController, {
-    validateOnClient: zodValidateOnClient,
-});
-
-export function updateUser(id: string, { name, email }: { name: string; email: string }) {
-    return this.controller.updateUser({
-        query: { id },
-        body: { name, email },
-    });
-}
-```
-
-Example usage in a component:
-
-```ts
-// app/page.tsx
-'use client';
-import React from 'react';
-import { updateUser } from '../vovk/UserState';
-
-const MyPage = () => {
-    useEffect(() => {
-        void updateUser('69420', { 
-            name: 'John Doe', 
-            email: 'john@example.ts' 
-        }).then(/* ... */)
-    }, []);
-
-    return (
-        // ...
-    )
-}
-
-export default MyPage;
-```
+When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vovk-zod/blob/main/zodValidateOnClient.ts) is enabled by default as `validateOnClient` option to validate incoming reqests on the client-side. Please check [customization docs](https://docs.vovk.dev/docs/customization) for more info.
 
 ## Working with `FormData`
 
-The library doesn't support `FormData` validation yet, but you still can validate your query.
+The library doesn't support `FormData` validation yet, but you still can validate query by setting body validation to `null`.
 
 ```ts
-// vovk/hello/HelloController.ts
+// /src/modules/hello/HelloController.ts
 import { post } from 'vovk';
 import vovkZod from 'vovk-zod';
 
@@ -121,7 +75,6 @@ export default class HelloController {
         // ...
     }
 }
-
 ```
 
 ## How it works

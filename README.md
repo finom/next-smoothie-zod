@@ -52,6 +52,30 @@ export default class UserController {
 
 ```
 
+
+```ts
+'use client';
+import React from 'react';
+import { UserController } from '@vovkts/client';
+
+const MyPage = () => {
+    useEffect(() => {
+        void UserController.updateUser({
+            query: { id: '696969' },
+            body: { name: 'John Doe', email: 'john@example.com' },
+            // optionally disable client validation for debugging purpose
+            disableClientValidation: true, 
+        }).then(/* ... */);
+    }, []);
+
+    return (
+        // ...
+    )
+}
+
+export default MyPage;
+```
+
 When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vovk-zod/blob/main/zodValidateOnClient.ts) is enabled by default as `validateOnClient` option to validate incoming reqests on the client-side. Please check [customization docs](https://docs.vovk.dev/docs/customization) for more info.
 
 ## Working with `FormData`

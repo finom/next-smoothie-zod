@@ -72,9 +72,41 @@ export default MyPage;
 
 When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vovk-zod/blob/main/zodValidateOnClient.ts) is enabled by default as `validateOnClient` config option to validate incoming reqests on the client-side. Please check [customization docs](https://docs.vovk.dev/docs/customization) for more info.
 
+Hint: To produce less variables you can also declare Zod models as private (optional) static class properties of the controller and access them within the decorator and `VovkRequest`.
+
+```ts
+// ...
+
+export default class UserController {
+    private static userService = UserService;
+
+    private static UpdateUserModel = z.object({
+        name: z.string(),
+        email: z.string(),
+    }).strict();
+
+    private static UpdateUserQueryModel = z.object({
+        id: z.string(),
+    }).strict();
+
+    @put()
+    @vovkZod(UserController.UpdateUserModel, UserController.UpdateUserQueryModel)
+    static updateUser(
+        req: VovkRequest<
+            z.infer<typeof UserController.UpdateUserModel>, 
+            z.infer<typeof UserController.UpdateUserQueryModel>
+        >
+    ) {
+       // ...
+    }
+}
+```
+
+The TypeScript compiler processes decorators at compile time and doesn't enforce private or protected access restrictions for members used within decorators in the same class. This behavior allows for more flexible class meta-programming patterns, which decorators aim to facilitate.
+
 ## Working with `FormData`
 
-The library doesn't support `FormData` validation yet, but you still can validate query by setting body validation to `null`.
+The library doesn't support `FormData` validation, but you can still validate query by setting body validation to `null`.
 
 ```ts
 // /src/modules/hello/HelloController.ts

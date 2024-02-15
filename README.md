@@ -50,7 +50,7 @@ export default class UserController {
 ```ts
 'use client';
 import React from 'react';
-import { UserController } from '@vovkts/client';
+import { UserController } from 'vovk-client';
 
 const MyPage = () => {
     useEffect(() => {

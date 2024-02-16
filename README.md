@@ -109,9 +109,7 @@ The TypeScript compiler processes decorators at compile time and doesn't enforce
 The library doesn't support `FormData` validation, but you can still validate query by setting body validation to `null`.
 
 ```ts
-// /src/modules/hello/HelloController.ts
-import { post } from 'vovk';
-import vovkZod from 'vovk-zod';
+// ...
 
 export default class HelloController {
     @post()

@@ -7,10 +7,10 @@ export { default as zodValidateOnClient } from './zodValidateOnClient';
 
 type KnownAny = any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
-type ZodObject = z.ZodObject<KnownAny> | z.ZodRecord<KnownAny>;
+type ZodAny = z.ZodObject<KnownAny> | z.ZodRecord<KnownAny> | z.ZodUnion<KnownAny>;
 
 const vovkZod = createDecorator(
-  async (req, next, bodyModel?: ZodObject | null, queryModel?: ZodObject | null) => {
+  async (req, next, bodyModel?: ZodAny | null, queryModel?: ZodAny | null) => {
     if (bodyModel) {
       const body: unknown = await req.json();
       try {
@@ -35,7 +35,7 @@ const vovkZod = createDecorator(
 
     return next();
   },
-  (bodyModel?: ZodObject | null, queryModel?: ZodObject | null) => {
+  (bodyModel?: ZodAny | null, queryModel?: ZodAny | null) => {
     return {
       clientValidators: {
         body: bodyModel ? zodToJsonSchema(bodyModel) : null,

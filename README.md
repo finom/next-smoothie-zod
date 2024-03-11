@@ -80,12 +80,12 @@ Hint: To produce less variables you can also declare Zod models as `static` (wit
 export default class UserController {
     private static userService = UserService;
 
-    private static UpdateUserModel = z.object({
+    static UpdateUserModel = z.object({
         name: z.string(),
         email: z.string(),
     }).strict();
 
-    private static UpdateUserQueryModel = z.object({
+    static UpdateUserQueryModel = z.object({
         id: z.string(),
     }).strict();
 
@@ -101,8 +101,6 @@ export default class UserController {
     }
 }
 ```
-
-The TypeScript compiler processes decorators at compile time and doesn't enforce private or protected access restrictions for members used within decorators in the same class. This behavior allows for more flexible class meta-programming patterns, which decorators aim to facilitate.
 
 ## Working with `FormData`
 

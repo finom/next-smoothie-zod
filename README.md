@@ -76,36 +76,6 @@ export default MyPage;
 
 When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vovk-zod/blob/main/zodValidateOnClient.ts) is enabled by default as `validateOnClient` config option to validate incoming reqests on the client-side. Please check [customization docs](https://docs.vovk.dev/docs/customization) for more info.
 
-Hint: To produce less variables you can also declare Zod models as `static` (with an optional `private` prefix) class members of the controller to access them within the `@vovkZod` decorator and `VovkRequest`.
-
-```ts
-// ...
-
-export default class UserController {
-    private static userService = UserService;
-
-    static UpdateUserModel = z.object({
-        name: z.string(),
-        email: z.string(),
-    }).strict();
-
-    static UpdateUserQueryModel = z.object({
-        id: z.string(),
-    }).strict();
-
-    @put()
-    @vovkZod(UserController.UpdateUserModel, UserController.UpdateUserQueryModel)
-    static updateUser(
-        req: VovkRequest<
-            z.infer<typeof UserController.UpdateUserModel>, 
-            z.infer<typeof UserController.UpdateUserQueryModel>
-        >
-    ) {
-       // ...
-    }
-}
-```
-
 ## Working with `FormData`
 
 The library doesn't support `FormData` validation, but you can still validate query by setting body validation to `null`.

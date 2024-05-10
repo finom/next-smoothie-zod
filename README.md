@@ -1,5 +1,9 @@
 <p align="middle">
-<a href="https://github.com/finom/vovk"><img valign="middle" src="https://github.com/finom/vovk/assets/1082083/86bfbbbb-3600-435b-a74c-c07bd0c4af4b" height="150" /></a> &nbsp;&nbsp;<img valign="middle" alt="plus" src="https://github.com/finom/vovk-zod/assets/1082083/50a15051-51a8-4f9b-a251-e4376576f9e7" width="30" /> <a href="https://zod.dev/"><img valign="middle" src="https://github.com/finom/vovk-zod/assets/1082083/308ef538-43b5-4ea5-ab1e-a660b4e21b65"  height="150" /></a> <img valign="middle" alt="plus" src="https://github.com/finom/vovk-zod/assets/1082083/50a15051-51a8-4f9b-a251-e4376576f9e7" width="30" /> <a href="https://ajv.js.org/"><img valign="middle" src="https://github.com/finom/vovk-zod/assets/1082083/0165a210-aba2-461a-ba02-37350f09cd23" height="100" /></a>
+<a href="https://github.com/finom/vovk"><br /><picture>
+    <source width="300" media="(prefers-color-scheme: dark)" srcset="https://vovk.dev/vovk-logo-white.svg">
+    <source width="300" media="(prefers-color-scheme: light)" srcset="https://vovk.dev/vovk-logo.svg">
+    <img width="200" alt="vovk" src="https://vovk.dev/vovk-logo.svg">
+  </picture></a> <br><img valign="middle" alt="plus" src="https://github.com/finom/vovk-zod/assets/1082083/50a15051-51a8-4f9b-a251-e4376576f9e7" width="30" /> <br><a href="https://zod.dev/"><img valign="middle" src="https://github.com/finom/vovk-zod/assets/1082083/308ef538-43b5-4ea5-ab1e-a660b4e21b65"  height="100" /></a> <a href="https://ajv.js.org/"><img valign="middle" src="https://github.com/finom/vovk-zod/assets/1082083/0165a210-aba2-461a-ba02-37350f09cd23" height="70" /></a>
 </p>
 <h1 align="center">vovk-zod</h1>
 <p align="center">Isomorphic <a href="https://zod.dev/">Zod</a> validation for <a href="https://github.com/finom/vovk">Vovk.ts</a> controllers on server and client</p>
@@ -71,38 +75,6 @@ export default MyPage;
 ```
 
 When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vovk-zod/blob/main/zodValidateOnClient.ts) is enabled by default as `validateOnClient` config option to validate incoming reqests on the client-side. Please check [customization docs](https://docs.vovk.dev/docs/customization) for more info.
-
-Hint: To produce less variables you can also declare Zod models as `static` (with an optional `private` prefix) class members of the controller to access them within the `@vovkZod` decorator and `VovkRequest`.
-
-```ts
-// ...
-
-export default class UserController {
-    private static userService = UserService;
-
-    private static UpdateUserModel = z.object({
-        name: z.string(),
-        email: z.string(),
-    }).strict();
-
-    private static UpdateUserQueryModel = z.object({
-        id: z.string(),
-    }).strict();
-
-    @put()
-    @vovkZod(UserController.UpdateUserModel, UserController.UpdateUserQueryModel)
-    static updateUser(
-        req: VovkRequest<
-            z.infer<typeof UserController.UpdateUserModel>, 
-            z.infer<typeof UserController.UpdateUserQueryModel>
-        >
-    ) {
-       // ...
-    }
-}
-```
-
-The TypeScript compiler processes decorators at compile time and doesn't enforce private or protected access restrictions for members used within decorators in the same class. This behavior allows for more flexible class meta-programming patterns, which decorators aim to facilitate.
 
 ## Working with `FormData`
 

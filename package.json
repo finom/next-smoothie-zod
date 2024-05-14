@@ -7,7 +7,7 @@
     "test": "npm run lint-nofix && tsc --noEmit",
     "lint": "npm run lint-nofix -- --fix",
     "lint-nofix": "npx eslint .",
-    "upgrade": "npx npm-check-updates -u && npm i",
+    "upgrade": "npx npm-check-updates -u -x eslint && npm i",
     "build": "tsc",
     "patch": "npm t && npm version patch && npm run build && npm publish && git push && git push --tags",
     "minor": "npm t && npm version minor && npm run build && npm publish && git push && git push --tags",
@@ -29,23 +29,23 @@
   "author": "Andrii Gubanov",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.11.19",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
-    "next": "^14.1.0",
-    "typescript": "^5.3.3",
+    "next": "^14.2.3",
+    "typescript": "^5.4.5",
     "zod": "*"
   },
   "peerDependencies": {
     "next": "*",
-    "vovk": "*",
+    "vovk": "^2.1.1-beta.0",
     "zod": "*"
   },
   "dependencies": {
-    "ajv": "^8.12.0",
-    "ajv-formats": "^2.1.1",
-    "zod-to-json-schema": "^3.22.4"
+    "ajv": "^8.13.0",
+    "ajv-formats": "^3.0.1",
+    "zod-to-json-schema": "^3.23.0"
   }
 }

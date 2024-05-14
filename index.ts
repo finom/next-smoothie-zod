@@ -36,12 +36,18 @@ const vovkZod = createDecorator(
     return next();
   },
   (bodyModel?: ZodAny | null, queryModel?: ZodAny | null) => {
-    return {
+    return (handlerMetadata) => ({
+      ...handlerMetadata,
+      customMetadata: {
+        ...handlerMetadata?.customMetadata,
+        [Symbol.for('zodBodyModel')]: bodyModel,
+        [Symbol.for('zodQueryModel')]: queryModel,
+      },
       clientValidators: {
         body: bodyModel ? zodToJsonSchema(bodyModel) : null,
         query: queryModel ? zodToJsonSchema(queryModel) : null,
       },
-    };
+    });
   }
 );
 

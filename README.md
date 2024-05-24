@@ -34,8 +34,6 @@ const UpdateUserQueryModel = z.object({
 }).strict();
 
 export default class UserController {
-    private static userService = UserService;
-
     @put()
     @vovkZod(UpdateUserModel, UpdateUserQueryModel)
     static updateUser(
@@ -44,7 +42,7 @@ export default class UserController {
         const { name, email } = await req.json();
         const id = req.nextUrl.searchParams.get('id');
 
-        return this.userService.updateUser(id, { name, email });
+        return UserService.updateUser(id, { name, email });
     }
 }
 

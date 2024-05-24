@@ -84,7 +84,7 @@ The library doesn't support `FormData` validation, but you can still validate qu
 export default class HelloController {
     @post()
     @vovkZod(null, z.object({ something: z.string() }).strict())
-    static postFormData(req: VovkRequest<FormData, { something: string }>) {
+    static postFormData(req: VovkRequest<null, { something: string }>) {
         const formData = await req.formData();
         const something = req.nextUrl.searchParams.get('something');
 

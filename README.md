@@ -76,7 +76,7 @@ When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vo
 
 ## Working with `FormData`
 
-The library doesn't support `FormData` validation, but you can still validate query by setting body validation to `null`.
+The library doesn't support `FormData` validation, but you can still validate query by setting body validation to `null`. At the same time `VovkRequest` should get `FormData` type as the first generic parameter in order to make types of **vovk-client** infer body as expected.
 
 ```ts
 // ...
@@ -84,7 +84,7 @@ The library doesn't support `FormData` validation, but you can still validate qu
 export default class HelloController {
     @post()
     @vovkZod(null, z.object({ something: z.string() }).strict())
-    static postFormData(req: VovkRequest<null, { something: string }>) {
+    static postFormData(req: VovkRequest<FormData, { something: string }>) {
         const formData = await req.formData();
         const something = req.nextUrl.searchParams.get('something');
 

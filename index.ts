@@ -12,7 +12,7 @@ type ZodAny = z.ZodObject<KnownAny> | z.ZodRecord<KnownAny> | z.ZodUnion<KnownAn
 const vovkZod = createDecorator(
   async (req, next, bodyModel?: ZodAny | null, queryModel?: ZodAny | null) => {
     if (bodyModel) {
-      const body: unknown = await req.json();
+      const body = await req.json();
       try {
         bodyModel.parse(body);
       } catch (e) {

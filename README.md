@@ -34,8 +34,6 @@ const UpdateUserQueryModel = z.object({
 }).strict();
 
 export default class UserController {
-    private static userService = UserService;
-
     @put()
     @vovkZod(UpdateUserModel, UpdateUserQueryModel)
     static updateUser(
@@ -44,7 +42,7 @@ export default class UserController {
         const { name, email } = await req.json();
         const id = req.nextUrl.searchParams.get('id');
 
-        return this.userService.updateUser(id, { name, email });
+        return UserService.updateUser(id, { name, email });
     }
 }
 
@@ -78,7 +76,7 @@ When **vovk-zod** is installed [zodValidateOnClient](https://github.com/finom/vo
 
 ## Working with `FormData`
 
-The library doesn't support `FormData` validation, but you can still validate query by setting body validation to `null`.
+The library doesn't support `FormData` validation, but you can still validate query by setting body validation to `null`. At the same time `VovkRequest` should get `FormData` type as the first generic parameter in order to make types of **vovk-client** infer body as expected.
 
 ```ts
 // ...
